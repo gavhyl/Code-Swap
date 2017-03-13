@@ -18,11 +18,14 @@ var ShoppinglistSchema = new Schema({
   },
   color: {
     type: String,
-    // default: "#000000",
     required: 'Please provide Shopping List color',
     trim: true
   },
   created: {
+    type: Date,
+    default: Date.now
+  },
+  updatedAt: {
     type: Date,
     default: Date.now
   },
