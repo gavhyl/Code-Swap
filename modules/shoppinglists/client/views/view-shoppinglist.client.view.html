@@ -3,6 +3,9 @@
     <h1 ng-bind="vm.shoppinglist.name"></h1>
   </div>
   <p>{{vm.shoppinglist.color}}</p>
+  <div style="color: {{vm.shoppinglist.color}}">
+    test
+  </div>
   <div class="pull-right"
        ng-show="vm.shoppinglist.isCurrentUserOwner">
     <a class="btn btn-primary"
