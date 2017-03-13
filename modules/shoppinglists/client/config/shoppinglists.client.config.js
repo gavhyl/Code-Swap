@@ -10,7 +10,7 @@
   function menuConfig(Menus) {
     // Set top bar menu items
     Menus.addMenuItem('topbar', {
-      title: 'Shoppinglists',
+      title: 'Shopping Lists',
       state: 'shoppinglists',
       type: 'dropdown',
       roles: ['*']
@@ -18,13 +18,13 @@
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'shoppinglists', {
-      title: 'List Shoppinglists',
+      title: 'View All Shopping Lists',
       state: 'shoppinglists.list'
     });
 
     // Add the dropdown create item
     Menus.addSubMenuItem('topbar', 'shoppinglists', {
-      title: 'Create Shoppinglist',
+      title: 'Create Shopping List',
       state: 'shoppinglists.create',
       roles: ['user']
     });

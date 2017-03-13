@@ -8,6 +8,8 @@
         <div class="form-group" show-errors>
           <label class="control-label" for="name">Name</label>
           <input name="name" type="text" ng-model="vm.shoppinglist.name" id="name" class="form-control" placeholder="Name" required>
+          <label class="control-label" for="color">Color</label>
+          <input type="color" name="color" ng-model="vm.shoppinglist.color" id="color" class="form-control" style="width: 100px" required />
           <div ng-messages="vm.form.shoppinglistForm.name.$error" role="alert">
             <p class="help-block error-text" ng-message="required">Shoppinglist name is required.</p>
           </div>
