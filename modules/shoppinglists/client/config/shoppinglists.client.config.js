@@ -5,11 +5,11 @@
     .module('shoppinglists')
     .run(menuConfig);
 
-  menuConfig.$inject = ['menuService'];
+  menuConfig.$inject = ['Menus'];
 
-  function menuConfig(menuService) {
+  function menuConfig(Menus) {
     // Set top bar menu items
-    menuService.addMenuItem('topbar', {
+    Menus.addMenuItem('topbar', {
       title: 'Shoppinglists',
       state: 'shoppinglists',
       type: 'dropdown',
@@ -17,13 +17,13 @@
     });
 
     // Add the dropdown list item
-    menuService.addSubMenuItem('topbar', 'shoppinglists', {
+    Menus.addSubMenuItem('topbar', 'shoppinglists', {
       title: 'List Shoppinglists',
       state: 'shoppinglists.list'
     });
 
     // Add the dropdown create item
-    menuService.addSubMenuItem('topbar', 'shoppinglists', {
+    Menus.addSubMenuItem('topbar', 'shoppinglists', {
       title: 'Create Shoppinglist',
       state: 'shoppinglists.create',
       roles: ['user']
