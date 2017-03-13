@@ -1,0 +1,22 @@
+body {
+  font-family: 'Shadows Into Light Two', cursive;
+  background-image: url("img/brick-wall.png");
+}
+
+#home-header {
+  font-family: 'Dawning of a New Day', cursive;
+  font-size: 150px;
+  color: #a76dd6;
+}
+
+.list-group > a > h4 {
+	font-size: 35px;
+}
+
+label {
+	font-size: 20px;
+}
+
+.form-control {
+	font-size: 20px;
+}
