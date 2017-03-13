@@ -23,6 +23,11 @@ var ShoppinglistSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+   note: {
+    type: String,
+    default: '',
+    ref: 'note'
   }
 });
 
