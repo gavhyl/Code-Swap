@@ -1,14 +1,14 @@
 <section>
   <div class="page-header">
-    <h1>Shopping Lists <a ui-sref="shoppinglists.create" class="btn btn-md btn-primary pull-right">Add New List</a></h1>
+    <h1>Shopping Lists <button ui-sref="shoppinglists.create" class="btn btn-primary btn-md pull-right">Add New List</button></h1>
 
   </div>
   <div class="list-group">
     <a ng-repeat="shoppinglist in vm.shoppinglists"
        ui-sref="shoppinglists.view({ shoppinglistId: shoppinglist._id })"
        class="list-group-item">
-      <small class="list-group-item-text">
-        Posted on
+      <small class="list-group-item-text text-muted">
+        Created on
         <span ng-bind="shoppinglist.created | date:'mediumDate'"></span>
         by
         <span ng-if="shoppinglist.user" ng-bind="shoppinglist.user.displayName"></span>

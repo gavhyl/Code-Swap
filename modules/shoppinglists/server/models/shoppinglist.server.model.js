@@ -25,14 +25,25 @@ var ShoppinglistSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  updatedAt: {
-    type: Date,
-    default: Date.now
+  updated: {
+    type: Date
   },
   user: {
     type: Schema.ObjectId,
     ref: 'User'
   }
 });
+
+/*
+  change update date to now, keep created date as initial date
+*/
+ShoppinglistSchema.pre('save', function(next) {
+  let now = new Date();
+  this.updated = now;
+  if(!this.created == now) {
+    this.created = now;
+  }
+  next();
+})
 
 mongoose.model('Shoppinglist', ShoppinglistSchema);

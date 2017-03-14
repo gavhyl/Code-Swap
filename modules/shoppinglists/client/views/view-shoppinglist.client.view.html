@@ -3,8 +3,11 @@
     <h1 ng-bind="vm.shoppinglist.name"></h1>
     <small>
     <em class="text-muted">
-      Posted on
-      <span ng-bind="vm.shoppinglist.created | date:'mediumDate'"></span>
+      Created on
+      <span ng-bind="vm.shoppinglist.created | date:'medium'"></span>
+      <br/>
+      Updated on 
+      <span ng-bind="vm.shoppinglist.updated | date:'medium'"></span>
       by
       <span ng-if="vm.shoppinglist.user"
             ng-bind="vm.shoppinglist.user.displayName"></span>
