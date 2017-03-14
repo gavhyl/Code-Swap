@@ -1,6 +1,9 @@
 <section>
   <div class="page-header">
+  <div style="color: {{vm.shoppinglist.color}}">
     <h1 ng-bind="vm.shoppinglist.name"></h1>
+  </div>
+  {{vm.shoppinglist}}
     <small>
     <em class="text-muted">
       Posted on
@@ -10,11 +13,34 @@
             ng-bind="vm.shoppinglist.user.displayName"></span>
       <span ng-if="!vm.shoppinglist.user">Deleted User</span>
     </em>
-  </small>
+    </small>
   </div>
-  <div style="color: {{vm.shoppinglist.color}}">
-    <p><strong>test</strong></p>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Priority</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th><input type="text" name="item" ng-model="vm.name"></th>
+          <th><input type="text" name="quantity" ng-model="vm.quantity"></th>
+          <th><select type="text" name="priority" ng-model="vm.priority"></select></th>
+          <td><button class="btn btn-primary" ng-click="vm.addItem()">Add</button></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in vm.items">
+          <td>{{item.name}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.priority}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+  
   <div class="pull-right"
        ng-show="vm.shoppinglist.isCurrentUserOwner">
     <a class="btn btn-primary"
