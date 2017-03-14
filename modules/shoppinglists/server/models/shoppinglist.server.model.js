@@ -13,12 +13,12 @@ var ShoppinglistSchema = new Schema({
   name: {
     type: String,
     default: '',
-    required: 'Please provide Shopping List name',
+    required: 'Please provide shopping list name',
     trim: true
   },
   color: {
     type: String,
-    required: 'Please provide Shopping List color',
+    required: 'Please provide shopping list color',
     trim: true
   },
   created: {
