@@ -30,16 +30,16 @@
     </thead>
     <tbody style="color: {{vm.shoppinglist.color}}">
       <tr ng-repeat="item in vm.shoppinglist.items">
-        <td><input type="checkbox" id="itemCheck" ng-model="item.isChecked" /></td>
-        <td><span ng-class="isDone($index)">{{item.name}}</span></td>
-        <td>{{item.quantity}}</td>
-        <td>{{item.priority}}</td>
+        <td><input type="checkbox" ng-model="item.isChecked" /></td>
+        <td ng-class="{'item-done' : item.isChecked}">{{item.name}}</td>
+        <td ng-class="{'item-done' : item.isChecked}">{{item.quantity}}</td>
+        <td ng-class="{'item-done' : item.isChecked}">{{item.priority}}</td>
         <td><span class="fa fa-times" ng-click="removeItem($index)"></span></td>
       </tr>
     </tbody>
   </table>
 
-  <button ng-click="removeAll()">Removed Checked</button>
+  <button type="button" ng-click="deleteChecked()">Removed Checked</button>
 
   {{vm.shoppinglist.items}}
 

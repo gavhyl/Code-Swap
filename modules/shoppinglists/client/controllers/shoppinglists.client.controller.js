@@ -42,17 +42,15 @@
       vm.isChecked = false;
     }
 
-    function isDone(index) {
-      return vm.items[index].isChecked ? "item-done" : "";
-    }
-
     function removeItem(index) {
       vm.items.splice(index,1);
     }
 
-    function removeAll() {
-      for (item in vm.items) {
-        if (item.isChecked) {
+    function deleteChecked() {
+      console.log("heyy");
+      for (var i = 0; i < vm.items.length; i++) {
+        if (vm.item[i].isChecked) {
+          console.log(vm.items[i]);
           vm.items.splice(i,1);
         }
       }
