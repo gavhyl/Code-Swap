@@ -42,13 +42,21 @@
       vm.isChecked = false;
     }
 
-    function removeItem() {
-      var oldList = vm.shoppinglist.items;
-      vm.shoppinglist.items = [];
-      angular.forEach(oldList, function(x) {
-        if (!x.isChecked) AesGcmParams.shoppinglist.items.push(x);
-      });
-    };
+    function isDone(index) {
+      return vm.items[index].isChecked ? "item-done" : "";
+    }
+
+    function removeItem(index) {
+      vm.items.splice(index,1);
+    }
+
+    function removeAll() {
+      for (item in vm.items) {
+        if (item.isChecked) {
+          vm.items.splice(i,1);
+        }
+      }
+    }
 
     // Save Shoppinglist
     function save(isValid) {
