@@ -3,7 +3,6 @@
   <div style="color: {{vm.shoppinglist.color}}">
     <h1 ng-bind="vm.shoppinglist.name"></h1>
   </div>
-  {{vm.shoppinglist}}
     <small>
     <em class="text-muted">
       Posted on
@@ -14,31 +13,6 @@
       <span ng-if="!vm.shoppinglist.user">Deleted User</span>
     </em>
     </small>
-  </div>
-  <div class="container">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Priority</th>
-          <th></th>
-        </tr>
-        <tr>
-          <th><input type="text" name="item" ng-model="vm.shoppinglist.item.name"></th>
-          <th><input type="text" name="quantity" ng-model="vm.shoppinglist.item.quantity"></th>
-          <th><select name="priority" ng-model="vm.shoppinglist.item.priority"></select></th>
-          <td><button class="btn btn-primary" ng-click="vm.addItem()">Add</button></td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="item in vm.items">
-          <td>{{vm.shoppinglist.item.name}}</td>
-          <td>{{vm.shoppinglist.item.quantity}}</td>
-          <td>{{vm.shoppinglist.item.priority}}</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
   
   <div class="pull-right"
