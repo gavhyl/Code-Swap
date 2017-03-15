@@ -17,16 +17,32 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
+    vm.addItem = addItem;
+    vm.items = [];
     // vm.listColor = '#000000';
     // Remove existing Shoppinglist
+
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
         vm.shoppinglist.$remove($state.go('shoppinglists.list'));
       }
     }
 
+    function addItem() {
+      vm.items.push({
+        name: vm.name,
+        quantity: vm.quantity,
+        priority: vm.priority
+      });
+
+      vm.name = "";
+      vm.quantity = "";
+      vm.priority = "";
+    }
+
     // Save Shoppinglist
     function save(isValid) {
+      vm.shoppinglist.items = vm.items;
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.shoppinglistForm');
         return false;
@@ -34,6 +50,8 @@
 
       // TODO: move create/update logic to service
       if (vm.shoppinglist._id) {
+        vm.shoppinglist.items = vm.items;
+
         vm.shoppinglist.$update(successCallback, errorCallback);
       } else {
         vm.shoppinglist.$save(successCallback, errorCallback);

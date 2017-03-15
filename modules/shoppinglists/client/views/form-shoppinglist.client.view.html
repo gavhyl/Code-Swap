@@ -32,5 +32,31 @@
         </div>
       </fieldset>
     </form>
+    <div class="container">
+    {{vm.shoppinglist}}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Priority</th>
+          <th></th>
+        </tr>
+        <tr>
+          <th><input type="text" name="item" ng-model="vm.name"></th>
+          <th><input type="text" name="quantity" ng-model="vm.quantity"></th>
+          <th><select name="priority" ng-model="vm.priority"></select></th>
+          <td><button class="btn btn-primary" ng-click="vm.addItem()">Add</button></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in vm.items">
+          <td>{{item.name}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.priority}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
   </div>
 </section>

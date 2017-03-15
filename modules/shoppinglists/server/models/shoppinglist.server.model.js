@@ -31,6 +31,10 @@ var ShoppinglistSchema = new Schema({
   user: {
     type: Schema.ObjectId,
     ref: 'User'
+  },
+  items: {
+    type: Array,
+    default: []
   }
 });
 
