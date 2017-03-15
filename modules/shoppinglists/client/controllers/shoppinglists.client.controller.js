@@ -17,7 +17,7 @@
     vm.form = {};
     vm.remove = remove;
     vm.save = save;
-
+    // vm.listColor = '#000000';
     // Remove existing Shoppinglist
     function remove() {
       if ($window.confirm('Are you sure you want to delete?')) {
