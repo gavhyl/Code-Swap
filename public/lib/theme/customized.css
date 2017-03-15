@@ -24,3 +24,7 @@ label {
 .text-muted {
   font-size: 15px;
 }
+
+.item-info {
+  [if(item.isChecked)]text-decoration: line-through;
+}

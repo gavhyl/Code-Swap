@@ -32,13 +32,23 @@
       vm.items.push({
         name: vm.name,
         quantity: vm.quantity,
-        priority: vm.priority
+        priority: vm.priority,
+        isChecked: vm.isChecked
       });
 
-      vm.name = "";
-      vm.quantity = "";
-      vm.priority = "";
+      vm.name = '';
+      vm.quantity = '';
+      vm.priority = '';
+      vm.isChecked = false;
     }
+
+    function removeItem() {
+      var oldList = vm.shoppinglist.items;
+      vm.shoppinglist.items = [];
+      angular.forEach(oldList, function(x) {
+        if (!x.isChecked) AesGcmParams.shoppinglist.items.push(x);
+      });
+    };
 
     // Save Shoppinglist
     function save(isValid) {

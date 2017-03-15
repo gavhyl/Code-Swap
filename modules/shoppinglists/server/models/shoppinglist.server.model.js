@@ -42,12 +42,12 @@ var ShoppinglistSchema = new Schema({
   change update date to now, keep created date as initial date
 */
 ShoppinglistSchema.pre('save', function(next) {
-  let now = new Date();
+  var now = new Date();
   this.updated = now;
-  if(!this.created == now) {
+  if(this.created !== now) {
     this.created = now;
   }
   next();
-})
+});
 
 mongoose.model('Shoppinglist', ShoppinglistSchema);
