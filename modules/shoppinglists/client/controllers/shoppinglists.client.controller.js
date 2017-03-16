@@ -47,7 +47,7 @@
       vm.note ='';
       
       if (!isValid) {
-        $scope.$broadcast('show-errors-check-validity', 'vm.form.shoppinglistForm');
+        $scope.$broadcast('show-errors-check-validity', 'vm.form.shoppinglistItemForm');
         return false;
       }
 
@@ -69,17 +69,43 @@
 
     function removeItem(item) {
       vm.items = vm.shoppinglist.items;
-      var itemToDelete = vm.items.indexOf(item);
-      vm.items.splice(itemToDelete, 1);
+      var itemToDelete = vm.items.indexOf(item)
+      vm.shoppinglist.items.splice(itemToDelete, 1);
+
+      if (vm.shoppinglist._id) {
+        vm.shoppinglist.$update(successCallback, errorCallback);
+      } 
+
+      function successCallback(res) {
+        $state.go('shoppinglists.view', {
+          shoppinglistId: res._id
+        });
+      }
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
     }
 
     function deleteChecked() {
       vm.items = vm.shoppinglist.items;
-      for (var i = 0; i < vm.items.length; i++) {
+      for (var i = (vm.items.length-1); i > -1; i--) {
         if (vm.items[i].isChecked) {
           console.log(vm.items[i]);
           vm.items.splice(i,1);
         }
+      }
+
+      if (vm.shoppinglist._id) {
+        vm.shoppinglist.$update(successCallback, errorCallback);
+      } 
+
+      function successCallback(res) {
+        $state.go('shoppinglists.view', {
+          shoppinglistId: res._id
+        });
+      }
+      function errorCallback(res) {
+        vm.error = res.data.message;
       }
 
     }
