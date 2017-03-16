@@ -25,16 +25,19 @@
           <th>Item</th>
           <th>Quantity</th>
           <th>Priority</th>
+          <th>Notes</th>
         </tr>
         <tr>
           <th><input type="text" name="item" ng-model="vm.name"></th>
           <th><input type="text" name="quantity" ng-model="vm.quantity"></th>
           <th><select type="text" name="priority" ng-model="vm.priority">
+          
               <option>Need it now</option>
               <option>Need this week</option>
               <option>Need this month</option>
               <option>Pick up whenever</option>
             </select></th>
+            <th><input type="text" name="note" ng-model="vm.note"></th>
           <td><button type="submit" class="btn btn-primary" >Add</button></td>
         </tr>
       </thead>

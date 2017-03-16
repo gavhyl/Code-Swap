@@ -36,6 +36,7 @@
         name: vm.name,
         quantity: vm.quantity,
         priority: vm.priority,
+        note: vm.note,
         isChecked: vm.isChecked
       });
 
@@ -43,7 +44,8 @@
       vm.quantity = '';
       vm.priority = '';
       vm.isChecked = false;
-
+      vm.note ='';
+      
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.shoppinglistForm');
         return false;
@@ -62,6 +64,7 @@
       function errorCallback(res) {
         vm.error = res.data.message;
       }
+
     }
 
     function removeItem(item) {
@@ -78,6 +81,7 @@
           vm.items.splice(i,1);
         }
       }
+
     }
 
     // Save Shoppinglist
@@ -108,4 +112,5 @@
       }
     }
   }
-}());
+}
+());

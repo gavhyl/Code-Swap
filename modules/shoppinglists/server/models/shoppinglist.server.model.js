@@ -52,7 +52,7 @@ var ShoppinglistSchema = new Schema({
 ShoppinglistSchema.pre('save', function(next) {
   var now = new Date();
   this.updated = now;
-  if(!this.created === now) {
+  if(!this.created == now) {
     this.created = now;
   }
   next();
