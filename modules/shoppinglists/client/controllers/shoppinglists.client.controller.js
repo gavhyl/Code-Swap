@@ -30,7 +30,7 @@
       }
     }
 
-    function addItem() {
+    function addItem(isValid) {
       vm.items = vm.shoppinglist.items;
       vm.items.push({
         name: vm.name,
@@ -45,6 +45,26 @@
       vm.priority = '';
       vm.isChecked = false;
       vm.note ='';
+      
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'vm.form.shoppinglistForm');
+        return false;
+      }
+
+      if (vm.shoppinglist._id) {
+        vm.shoppinglist.$update(successCallback, errorCallback);
+      } 
+
+      function successCallback(res) {
+        $state.go('shoppinglists.view', {
+          shoppinglistId: res._id
+        });
+      }
+
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
+
     }
 
     function removeItem(item) {
