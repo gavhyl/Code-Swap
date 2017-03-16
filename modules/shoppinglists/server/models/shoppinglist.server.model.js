@@ -13,21 +13,20 @@ var ShoppinglistSchema = new Schema({
   name: {
     type: String,
     default: '',
-    required: 'Please provide Shopping List name',
+    required: 'Please provide shopping list name',
     trim: true
   },
   color: {
     type: String,
-    required: 'Please provide Shopping List color',
+    required: 'Please provide shopping list color',
     trim: true
   },
   created: {
     type: Date,
     default: Date.now
   },
-  updatedAt: {
-    type: Date,
-    default: Date.now
+  updated: {
+    type: Date
   },
   user: {
     type: Schema.ObjectId,
@@ -45,6 +44,18 @@ var ShoppinglistSchema = new Schema({
     default: []
   }
 
+});
+
+/*
+  change update date to now, keep created date as initial date
+*/
+ShoppinglistSchema.pre('save', function(next) {
+  var now = new Date();
+  this.updated = now;
+  if(!this.created === now) {
+    this.created = now;
+  }
+  next();
 });
 
 mongoose.model('Shoppinglist', ShoppinglistSchema);

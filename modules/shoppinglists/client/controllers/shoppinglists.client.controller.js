@@ -16,6 +16,8 @@
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
+    vm.removeItem = removeItem;
+    vm.deleteChecked = deleteChecked;
     vm.save = save;
     vm.addItem = addItem;
     vm.items = [];
@@ -29,15 +31,34 @@
     }
 
     function addItem() {
+      vm.items = vm.shoppinglist.items;
       vm.items.push({
         name: vm.name,
         quantity: vm.quantity,
-        priority: vm.priority
+        priority: vm.priority,
+        isChecked: vm.isChecked
       });
 
-      vm.name = "";
-      vm.quantity = "";
-      vm.priority = "";
+      vm.name = '';
+      vm.quantity = '';
+      vm.priority = '';
+      vm.isChecked = false;
+    }
+
+    function removeItem(item) {
+      vm.items = vm.shoppinglist.items;
+      var itemToDelete = vm.items.indexOf(item);
+      vm.items.splice(itemToDelete, 1);
+    }
+
+    function deleteChecked() {
+      vm.items = vm.shoppinglist.items;
+      for (var i = 0; i < vm.items.length; i++) {
+        if (vm.items[i].isChecked) {
+          console.log(vm.items[i]);
+          vm.items.splice(i,1);
+        }
+      }
     }
 
     // Save Shoppinglist

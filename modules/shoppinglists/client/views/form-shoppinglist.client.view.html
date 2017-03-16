@@ -50,6 +50,8 @@
       </fieldset>
     </form>
     <div class="container">
+    {{vm.shoppinglist.items}}
+    <form>
 
     <table class="table">
       <thead>
@@ -57,12 +59,16 @@
           <th>Item</th>
           <th>Quantity</th>
           <th>Priority</th>
-          <th></th>
         </tr>
         <tr>
           <th><input type="text" name="item" ng-model="vm.name"></th>
           <th><input type="text" name="quantity" ng-model="vm.quantity"></th>
-          <th><select name="priority" ng-model="vm.priority"></select></th>
+          <th><select type="text" name="priority" ng-model="vm.priority">
+              <option>Need it now</option>
+              <option>Need this week</option>
+              <option>Need this month</option>
+              <option>Pick up whenever</option>
+            </select></th>
           <td><button class="btn btn-primary" ng-click="vm.addItem()">Add</button></td>
         </tr>
       </thead>
@@ -74,6 +80,7 @@
         </tr>
       </tbody>
     </table>
+    </form>
   </div>
   </div>
 </section>
