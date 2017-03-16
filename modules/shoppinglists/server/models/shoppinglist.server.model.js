@@ -33,11 +33,11 @@ var ShoppinglistSchema = new Schema({
     ref: 'User'
   },
 
-   note: {
+  note: {
     type: String,
     default: '',
     ref: 'note'
- },
+  },
 
   items: {
     type: Array,

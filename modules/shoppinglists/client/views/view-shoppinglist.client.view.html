@@ -20,6 +20,31 @@
 
   </div>
   
+  <div>
+    <form name="vm.form.shoppinglistItemForm" ng-submit="vm.addItem(vm.form.shoppinglistItemForm.$valid)">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Priority</th>
+        </tr>
+        <tr>
+          <th><input type="text" name="item" ng-model="vm.name"></th>
+          <th><input type="text" name="quantity" ng-model="vm.quantity"></th>
+          <th><select type="text" name="priority" ng-model="vm.priority">
+              <option>Need it now</option>
+              <option>Need this week</option>
+              <option>Need this month</option>
+              <option>Pick up whenever</option>
+            </select></th>
+          <td><button type="submit" class="btn btn-primary" >Add</button></td>
+        </tr>
+      </thead>
+    </table>
+    </form>
+  </div>
+
   <table class="table">
     <thead>
       <tr>
@@ -46,10 +71,6 @@
   <button type="button" ng-click="vm.deleteChecked()">Removed Checked</button>
 
   <h4>{{vm.shoppinglist.items}}</h4>
-
-<h3 style="color: {{vm.shoppinglist.color}}">Notes</h3>
-<h4><span ng-bind="vm.shoppinglist.note" style="color: {{vm.shoppinglist.color}}"></span></h4>
-      <hr />
 
   <div class="pull-right"
        ng-show="vm.shoppinglist.isCurrentUserOwner">
