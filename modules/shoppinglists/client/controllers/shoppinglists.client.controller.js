@@ -16,6 +16,8 @@
     vm.error = null;
     vm.form = {};
     vm.remove = remove;
+    vm.removeItem = removeItem;
+    vm.deleteChecked = deleteChecked;
     vm.save = save;
     vm.addItem = addItem;
     vm.items = [];
@@ -29,6 +31,7 @@
     }
 
     function addItem() {
+      vm.items = vm.shoppinglist.items;
       vm.items.push({
         name: vm.name,
         quantity: vm.quantity,
@@ -42,15 +45,20 @@
       vm.isChecked = false;
     }
 
-    function removeItem(index) {
-      // vm.items.splice(index,1);
-      console.log('hello');
+    function removeItem(item) {
+      vm.items = vm.shoppinglist.items;
+      console.log('heyy');
+      console.log(vm.items);
+      var itemToDelete = vm.items.indexOf(item);
+      vm.items.splice(itemToDelete, 1);
     }
 
     function deleteChecked() {
-      console.log('heyy');
+      vm.items = vm.shoppinglist.items;
+      console.log('hello');
+      console.log(vm.items.length);
       for (var i = 0; i < vm.items.length; i++) {
-        if (vm.item[i].isChecked) {
+        if (vm.items[i].isChecked) {
           console.log(vm.items[i]);
           vm.items.splice(i,1);
         }

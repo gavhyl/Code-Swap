@@ -2,6 +2,7 @@
   <div class="page-header">
   <div style="color: {{vm.shoppinglist.color}}">
     <h1 ng-bind="vm.shoppinglist.name"></h1>
+
   </div>
     <small>
     <em class="text-muted">
@@ -16,6 +17,7 @@
       <span ng-if="!vm.shoppinglist.user">Deleted User</span>
     </em>
     </small>
+
   </div>
   
   <table class="table">
@@ -25,7 +27,8 @@
         <th style="width: 20%">Item</th>
         <th style="width: 10%">Quantity</th>
         <th style="width: 20%">Priority</th>
-        <th style="width: 45%">Delete</th>
+        <th style="width: 35%">Notes</th>
+        <th style="width: 10%">Delete</th>
       </tr>
     </thead>
     <tbody style="color: {{vm.shoppinglist.color}}">
@@ -34,14 +37,19 @@
         <td ng-class="{'item-done' : item.isChecked}">{{item.name}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.quantity}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.priority}}</td>
-        <td><span class="fa fa-times" ng-click="removeItem(item.$index)"></span></td>
+        <td ng-class="{'item-done' : item.isChecked}">{{item.note}}</td>
+        <td><span class="fa fa-times" ng-click="vm.removeItem(item)"></span></td>
       </tr>
     </tbody>
   </table>
 
-  <button type="button" ng-click="deleteChecked()">Removed Checked</button>
+  <button type="button" ng-click="vm.deleteChecked()">Removed Checked</button>
 
-  {{vm.shoppinglist.items}}
+  <h4>{{vm.shoppinglist.items}}</h4>
+
+<h3 style="color: {{vm.shoppinglist.color}}">Notes</h3>
+<h4><span ng-bind="vm.shoppinglist.note" style="color: {{vm.shoppinglist.color}}"></span></h4>
+      <hr />
 
   <div class="pull-right"
        ng-show="vm.shoppinglist.isCurrentUserOwner">
@@ -49,10 +57,20 @@
        ui-sref="shoppinglists.edit({ shoppinglistId: vm.shoppinglist._id })">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
-    <a class="btn btn-danger" ng-click="vm.remove()">
+    <a class="btn btn-primary" ng-click="vm.remove()">
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
-  
+  <small>
+ 
+    <em class="text-muted">
+      Created on
+      <span ng-bind="vm.shoppinglist.created | date:'mediumDate'"></span>
+      by
+      <span ng-if="vm.shoppinglist.user"
+            ng-bind="vm.shoppinglist.user.displayName"></span>
+      <span ng-if="!vm.shoppinglist.user">Deleted User</span>
+    </em>
+  </small>
   <p class="lead" ng-bind="vm.shoppinglist.content"></p>
 </section>
