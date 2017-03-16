@@ -56,7 +56,7 @@
     </thead>
     <tbody style="color: {{vm.shoppinglist.color}}">
       <tr ng-repeat="item in vm.shoppinglist.items">
-        <td><input type="checkbox" ng-model="item.isChecked" /></td>
+        <td><input type="checkbox" ng-model="item.isChecked" | orderby: "name" /></td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.name}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.quantity}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.priority}}</td>

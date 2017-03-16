@@ -82,7 +82,7 @@
 
     // Save Shoppinglist
     function save(isValid) {
-       vm.shoppinglist.items = vm.items;
+      vm.shoppinglist.items = vm.items;
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.shoppinglistForm');
         return false;
