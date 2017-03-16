@@ -47,16 +47,12 @@
 
     function removeItem(item) {
       vm.items = vm.shoppinglist.items;
-      console.log('heyy');
-      console.log(vm.items);
       var itemToDelete = vm.items.indexOf(item);
       vm.items.splice(itemToDelete, 1);
     }
 
     function deleteChecked() {
       vm.items = vm.shoppinglist.items;
-      console.log('hello');
-      console.log(vm.items.length);
       for (var i = 0; i < vm.items.length; i++) {
         if (vm.items[i].isChecked) {
           console.log(vm.items[i]);
