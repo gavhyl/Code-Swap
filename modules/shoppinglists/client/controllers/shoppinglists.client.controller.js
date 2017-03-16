@@ -32,12 +32,14 @@
       vm.items.push({
         name: vm.name,
         quantity: vm.quantity,
-        priority: vm.priority
+        priority: vm.priority,
+        note: vm.note
       });
 
       vm.name = "";
       vm.quantity = "";
       vm.priority = "";
+      vm.note ="";
     }
 
     // Save Shoppinglist

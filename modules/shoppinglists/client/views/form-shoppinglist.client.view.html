@@ -13,8 +13,8 @@
           <label class="control-label" for="name">Name</label>
             <input name="name" type="text" ng-model="vm.shoppinglist.name" id="name" class="form-control" placeholder="Name" required>
 
-          <label class="control-label" for="note">Notes</label>
-          <textarea name="note" type="text" ng-model="vm.shoppinglist.note" id="note" class="form-control" placeholder="note"></textarea>
+          <!-- <label class="control-label" for="note">Notes</label>
+          <textarea name="note" type="text" ng-model="vm.shoppinglist.note" id="note" class="form-control" placeholder="note"></textarea> -->
             
           </div>
           <div class="col-md-12">
@@ -56,13 +56,16 @@
         <tr>
           <th>Item</th>
           <th>Quantity</th>
+          <th>Notes</th>
           <th>Priority</th>
           <th></th>
         </tr>
         <tr>
           <th><input type="text" name="item" ng-model="vm.name"></th>
           <th><input type="text" name="quantity" ng-model="vm.quantity"></th>
+          <th><input type="text" name="note" ng-model="vm.note"></th>
           <th><select name="priority" ng-model="vm.priority"></select></th>
+
           <td><button class="btn btn-primary" ng-click="vm.addItem()">Add</button></td>
         </tr>
       </thead>
@@ -70,7 +73,10 @@
         <tr ng-repeat="item in vm.items">
           <td>{{item.name}}</td>
           <td>{{item.quantity}}</td>
+         <td>{{item.note}}</td>
           <td>{{item.priority}}</td>
+
+          
         </tr>
       </tbody>
     </table>
