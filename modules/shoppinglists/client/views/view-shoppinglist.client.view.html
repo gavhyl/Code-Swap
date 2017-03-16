@@ -34,7 +34,7 @@
         <td ng-class="{'item-done' : item.isChecked}">{{item.name}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.quantity}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.priority}}</td>
-        <td><span class="fa fa-times" ng-click="removeItem($index)"></span></td>
+        <td><span class="fa fa-times" ng-click="removeItem(item.$index)"></span></td>
       </tr>
     </tbody>
   </table>

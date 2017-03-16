@@ -43,11 +43,12 @@
     }
 
     function removeItem(index) {
-      vm.items.splice(index,1);
+      // vm.items.splice(index,1);
+      console.log('hello');
     }
 
     function deleteChecked() {
-      console.log("heyy");
+      console.log('heyy');
       for (var i = 0; i < vm.items.length; i++) {
         if (vm.item[i].isChecked) {
           console.log(vm.items[i]);
