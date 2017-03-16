@@ -21,6 +21,8 @@
     vm.save = save;
     vm.addItem = addItem;
     vm.items = [];
+    vm.orderbyField = vm.name;
+    vm.reverseSort= false;
     // vm.listColor = '#000000';
     // Remove existing Shoppinglist
 
@@ -120,10 +122,10 @@
 
       // TODO: move create/update logic to service
       if (vm.shoppinglist._id) {
-        vm.shoppinglist.items = vm.items;
 
         vm.shoppinglist.$update(successCallback, errorCallback);
       } else {
+        vm.shoppinglist.items = vm.items;
         vm.shoppinglist.$save(successCallback, errorCallback);
       }
 
