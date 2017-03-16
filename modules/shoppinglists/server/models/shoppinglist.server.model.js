@@ -33,10 +33,7 @@ var ShoppinglistSchema = new Schema({
     type: Schema.ObjectId,
     ref: 'User'
   },
-  items: {
-    type: Array,
-    default: []
-  }
+  items: []
 });
 
 mongoose.model('Shoppinglist', ShoppinglistSchema);

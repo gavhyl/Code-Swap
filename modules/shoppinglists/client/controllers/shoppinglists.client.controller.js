@@ -42,7 +42,7 @@
 
     // Save Shoppinglist
     function save(isValid) {
-      vm.shoppinglist.items = vm.items;
+       vm.shoppinglist.items = vm.items;
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.shoppinglistForm');
         return false;
@@ -50,10 +50,10 @@
 
       // TODO: move create/update logic to service
       if (vm.shoppinglist._id) {
-        vm.shoppinglist.items = vm.items;
 
         vm.shoppinglist.$update(successCallback, errorCallback);
       } else {
+        vm.shoppinglist.items = vm.items;
         vm.shoppinglist.$save(successCallback, errorCallback);
       }
 
