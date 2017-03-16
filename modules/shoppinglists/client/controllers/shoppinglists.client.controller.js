@@ -21,6 +21,8 @@
     vm.save = save;
     vm.addItem = addItem;
     vm.items = [];
+    vm.orderbyField = vm.name;
+    vm.reverseSort= false;
     // vm.listColor = '#000000';
     // Remove existing Shoppinglist
 

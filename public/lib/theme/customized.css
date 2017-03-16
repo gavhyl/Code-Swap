@@ -28,3 +28,8 @@ label {
 .item-done {
   text-decoration: line-through;
 }
+
+th a {
+  color: black;
+  text-decoration: underline;
+}
