@@ -38,7 +38,7 @@ var ShoppinglistSchema = new Schema({
     type: String,
     default: '',
     ref: 'note'
- }
+ },
 
   items: {
     type: Array,
