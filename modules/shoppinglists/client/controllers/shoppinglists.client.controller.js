@@ -69,7 +69,7 @@
 
     function removeItem(item) {
       vm.items = vm.shoppinglist.items;
-      var itemToDelete = vm.items.indexOf(item)
+      var itemToDelete = vm.items.indexOf(item);
       vm.shoppinglist.items.splice(itemToDelete, 1);
 
       if (vm.shoppinglist._id) {
