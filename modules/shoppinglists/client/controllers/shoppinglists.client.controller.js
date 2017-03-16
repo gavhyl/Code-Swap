@@ -52,7 +52,8 @@
       if (vm.shoppinglist._id) {
         vm.shoppinglist.$update(successCallback, errorCallback);
       } 
-            function successCallback(res) {
+
+      function successCallback(res) {
         $state.go('shoppinglists.view', {
           shoppinglistId: res._id
         });

@@ -6,9 +6,6 @@
   </div>
     <small>
     <em class="text-muted">
-      Created on
-      <span ng-bind="vm.shoppinglist.created | date:'medium'"></span>
-      <br/>
       Updated on 
       <span ng-bind="vm.shoppinglist.updated | date:'medium'"></span>
       by
@@ -72,8 +69,7 @@
 
   <h4>{{vm.shoppinglist.items}}</h4>
 
-  <div class="pull-right"
-       ng-show="vm.shoppinglist.isCurrentUserOwner">
+  <div class="pull-right">
     <a class="btn btn-primary"
        ui-sref="shoppinglists.edit({ shoppinglistId: vm.shoppinglist._id })">
       <i class="glyphicon glyphicon-edit"></i>
