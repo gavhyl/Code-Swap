@@ -99,7 +99,7 @@ exports.shoppinglistByID = function(req, res, next, id) {
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(400).send({
-      message: 'Shoppinglist is invalid'
+      message: 'Shopping list is invalid'
     });
   }
 
@@ -108,7 +108,7 @@ exports.shoppinglistByID = function(req, res, next, id) {
       return next(err);
     } else if (!shoppinglist) {
       return res.status(404).send({
-        message: 'No Shoppinglist with that identifier has been found'
+        message: 'No shopping list with that identifier has been found'
       });
     }
     req.shoppinglist = shoppinglist;
