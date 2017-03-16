@@ -12,7 +12,7 @@
           <div class="col-md-6">
           <label class="control-label" for="name">Name</label>
             <input name="name" type="text" ng-model="vm.shoppinglist.name" id="name" class="form-control" placeholder="Name" required>
- 
+
           </div>
           <div class="col-md-12">
             <div class="form-group col-md-3" style="margin-right:30px">
@@ -35,36 +35,6 @@
     <div class="container">
     {{vm.shoppinglist.items}}
     <form>
-<!-- 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Quantity</th>
-          <th>Priority</th>
-        </tr>
-        <tr>
-          <th><input type="text" name="item" ng-model="vm.name"></th>
-          <th><input type="text" name="quantity" ng-model="vm.quantity"></th>
-          <th><select name="priority" ng-model="vm.priority"></select></th>
-          <td><button type="submit" class="btn btn-primary" ng-click="vm.addItem()">Add</button></td>
-          <th><select type="text" name="priority" ng-model="vm.priority">
-              <option>Need it now</option>
-              <option>Need this week</option>
-              <option>Need this month</option>
-              <option>Pick up whenever</option>
-            </select></th>
-          <td><button class="btn btn-primary" ng-click="vm.addItem()">Add</button></td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="item in vm.items">
-          <td>{{item.name}}</td>
-          <td>{{item.quantity}}</td>
-          <td>{{item.priority}}</td>
-        </tr>
-      </tbody>
-    </table> -->
     </form>
   </div>
   </div>
