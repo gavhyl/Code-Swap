@@ -51,7 +51,7 @@
     <thead>
       <tr>
         <th style="width: 5%">Done</th>
-        <th style="width: 20%"><a href="#" ng-click="orderByField='name'; reverseSort= !reverseSort">Item</a></th>
+        <th style="width: 20%"><a href="#" ng-click="orderByField='-name'; reverseSort= !reverseSort">Item</a></th>
         <th style="width: 25%"><a href="#" ng-click="orderByField='quantity'; reverseSort = !reverseSort">Quantity </a></th>
         <th style="width: 20%"><a href="#" ng-click="orderByField='priority'; reverseSort = !reverseSort">Priority</a></th>
         <th style="width: 20%">Notes</th>
@@ -85,7 +85,7 @@
  
     <em class="text-muted">
       Created on
-      <span ng-bind="vm.shoppinglist.created | date:'mediumDate'"></span>
+      <span ng-bind="vm.shoppinglist.created | date:'medium'"></span>
       by
       <span ng-if="vm.shoppinglist.user"
             ng-bind="vm.shoppinglist.user.displayName"></span>
