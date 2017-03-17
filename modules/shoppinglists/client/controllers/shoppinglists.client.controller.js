@@ -23,6 +23,7 @@
     vm.items = [];
     vm.orderbyField = vm.name;
     vm.reverseSort= false;
+    vm.isChecked = isChecked;
     // vm.listColor = '#000000';
     // Remove existing Shoppinglist
 
@@ -67,6 +68,26 @@
         vm.error = res.data.message;
       }
 
+    }
+
+    function isChecked(item) {
+      vm.items = vm.shoppinglist.items;
+      var itemToCheck = vm.items.indexOf(item);
+      vm.shoppinglist.items[itemToCheck].isChecked = !vm.shoppinglist.items[itemToCheck].isChecked;
+      
+
+      if (vm.shoppinglist._id) {
+        vm.shoppinglist.$update(successCallback, errorCallback);
+      } 
+
+      function successCallback(res) {
+        $state.go('shoppinglists.view', {
+          shoppinglistId: res._id
+        });
+      }
+      function errorCallback(res) {
+        vm.error = res.data.message;
+      }
     }
 
     function removeItem(item) {
@@ -114,7 +135,7 @@
 
     // Save Shoppinglist
     function save(isValid) {
-      vm.shoppinglist.items = vm.items;
+      vm.items = vm.shoppinglist.items;
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'vm.form.shoppinglistForm');
         return false;
@@ -122,7 +143,7 @@
 
       // TODO: move create/update logic to service
       if (vm.shoppinglist._id) {
-
+        vm.shoppinglist.items = vm.items;
         vm.shoppinglist.$update(successCallback, errorCallback);
       } else {
         vm.shoppinglist.items = vm.items;

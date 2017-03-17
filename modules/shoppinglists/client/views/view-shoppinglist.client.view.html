@@ -51,7 +51,7 @@
     <thead>
       <tr>
         <th style="width: 5%">Done</th>
-        <th style="width: 20%"><a href="#" ng-click="orderByField='name'; reverseSort= !reverseSort">Item</a></th>
+        <th style="width: 20%"><a href="#" ng-click="orderByField= 'name'; reverseSort = !reverseSort">Item</a></th>
         <th style="width: 25%"><a href="#" ng-click="orderByField='quantity'; reverseSort = !reverseSort">Quantity </a></th>
         <th style="width: 20%"><a href="#" ng-click="orderByField='priority'; reverseSort = !reverseSort">Priority</a></th>
         <th style="width: 20%">Notes</th>
@@ -60,7 +60,7 @@
     </thead>
     <tbody style="color: {{vm.shoppinglist.color}}">
       <tr ng-repeat="item in vm.shoppinglist.items | orderBy:orderByField:reverseSort">
-        <td><input type="checkbox" ng-model="item.isChecked"/></td>
+        <td><input type="checkbox" ng-checked="item.isChecked" ng-click="vm.isChecked(item)"/></td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.name}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.quantity}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.priority}}</td>
@@ -82,7 +82,6 @@
     </a>
   </div>
   <small>
- 
     <em class="text-muted">
       Created on
       <span ng-bind="vm.shoppinglist.created | date:'medium'"></span>
