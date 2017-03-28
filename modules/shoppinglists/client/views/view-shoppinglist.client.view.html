@@ -1,21 +1,30 @@
 <section>
   <div class="page-header">
-  <div style="color: {{vm.shoppinglist.color}}">
-    <h1 ng-bind="vm.shoppinglist.name"></h1>
+    <div style="color: {{vm.shoppinglist.color}}">
+      <h1 ng-bind="vm.shoppinglist.name"></h1>
 
+    </div>
+    <div class="col-md-6">
+      <small>
+      <em class="text-muted">
+        Updated on 
+        <span ng-bind="vm.shoppinglist.updated | date:'medium'"></span>
+        by
+        <span ng-if="vm.shoppinglist.user"
+              ng-bind="vm.shoppinglist.user.displayName"></span>
+        <span ng-if="!vm.shoppinglist.user">Deleted User</span>
+      </em>
+      </small>
+    </div>  
+    <div class="col-md-6">
+      <div class="bar" style="text-align: right;">
+        <input type="search" ng-model="searchText" placeholder="Enter Search">
+<!--         <button type="search" class="btn btn-default">Search</button> -->
+      </div>
+    </div>
   </div>
-    <small>
-    <em class="text-muted">
-      Updated on 
-      <span ng-bind="vm.shoppinglist.updated | date:'medium'"></span>
-      by
-      <span ng-if="vm.shoppinglist.user"
-            ng-bind="vm.shoppinglist.user.displayName"></span>
-      <span ng-if="!vm.shoppinglist.user">Deleted User</span>
-    </em>
-    </small>
 
-  </div>
+<br>
 
   
   <div>
@@ -47,7 +56,7 @@
     </form>
   </div>
 
-  <table class="table">
+  <table class="table" id="searchTextResults">
     <thead>
       <tr>
         <th style="width: 5%">Done</th>
@@ -59,7 +68,7 @@
       </tr>
     </thead>
     <tbody style="color: {{vm.shoppinglist.color}}">
-      <tr ng-repeat="item in vm.shoppinglist.items | orderBy:orderByField:reverseSort">
+      <tr ng-repeat="item in vm.shoppinglist.items | orderBy:orderByField:reverseSort | filter:searchText">
         <td><input type="checkbox" ng-checked="item.isChecked" ng-click="vm.isChecked(item)"/></td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.name}}</td>
         <td ng-class="{'item-done' : item.isChecked}">{{item.quantity}}</td>
